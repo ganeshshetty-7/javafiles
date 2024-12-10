@@ -26,13 +26,17 @@ void purchase(int qp)
 {
 q_purchase=qp;
 int q_left;
-double gross_amt,total_amt;
+double gross_amt,total_amt,discount;
 gross_amt=q_purchase*rate_of_p;
-total_amt=(gross_amt-(gross_amt*5)/100);
+discount=(gross_amt*5)/100;
+total_amt=gross_amt-discount;
 q_left=total_q-q_purchase;
+System.out.println("--------------------x----------------------------");
+System.out.println("Amount before 5% discount: "+gross_amt);
+System.out.println("5% discount amount: "+discount);
 System.out.println("Total Amount to be paid after 5% discount: "+total_amt);
 System.out.println("Quantity left : "+q_left);
-
+System.out.println("--------------------x----------------------------");
 }
 }
 
@@ -41,11 +45,31 @@ class pract2_2
 {
 public static void main(String args[])
 {
-Product p2=new Product();
-p2.purchase(20);//using default const
+Product p2=new Product();//using default const
+p2.purchase(20);
 Product p3=new Product(100,2000);//using parameterized const
 p3.purchase(20);
-Product p4=new Product(p2);
+Product p4=new Product(p3);
 p4.purchase(20);//using copy const
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
